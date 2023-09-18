@@ -1,35 +1,70 @@
-# ukol-07: Evidence aut
+# ukol-07
 
-Vytvoř program pro evidenci aut malé autopůjčovny. Půjčovna má 2 automobily:
+## Zadání
 
-| Registrační značka | Značka a typ vozidla | Počet najetých kilometrů |
-| ------------------ | -------------------- | ------------------------ |
-| 4A2 3020           | Peugeot 403 Cabrio   | 47534                    |
-| 1P3 4747           | Škoda Octavia        | 41253                    |
+1. Pomocí nástroje regex101 vymysli regulární výraz, který označí platná data a neoznačí neplatná data:
 
-Vytvoř třídu `Auto`, která bude obsahovat informace o autech, které půjčovna nabízí. Třída bude mít tyto atributy:
+* platná data:
+```
+2.2.2022
+13. 8. 1999
+4/5/2001
+```
 
-- registrační značka automobilu `registracni_znacka`,
-- značka a typ vozidla `typ_vozidla`,
-- počet najetých kilometrů `najete_km`,
-- informaci o tom, jestli je vozidlo aktuálně volné `dostupne` (pravdivostní hodnota -- `True` pokud je volné a `False` pokud je vypůjčené).
+* neplatná data:
+```
+5.123.458.91
+21.4
+8./9
+```
 
-Vytvoř metodu `__init__()` pro třídu `Auto`. Registrační značku, značku a typ vozidla a počet kilometrů získej jako parametry funkce `__init__` a ulož je jako atributy objektu. Poslední atribut rovnou nastav jako `True`, tj. na začátku je vozidlo vždy volné.
-
-Vytvoř objekty, které reprezentují oba automobily půjčovny.
-
-Třídě `Auto` přidej metodu `pujc_auto()`, která nebude mít (kromě obligátního `self`) žádný parametr. Funkce zkontroluje, jestli je vozidlo aktuálně volné. Pokud je volné, změní hodnotu atributu `dostupne`, který určuje, zda je vozidlo půjčené, a vrátí text `"Potvrzuji zapůjčení vozidla"`. Pokud je vozidlo již půjčené, vrátí text `"Vozidlo není k dispozici"`.
-
-Dále tříde `Auto` přidej funkci `get_info()`, která vrátí informaci o vozidle (stačí registrační značka a značka a typ vozidla) jako řetězec.
-
-Nakonec do programu (mimo třídu) napiš dotaz na uživatele, jakou značku si uživatel přeje půjčit. Uživatel může zadávat hodnoty `Peugeot` nebo `Škoda`. Jakmile si uživatel vybere značku, vypiš informaci o vozidle pomocí funkce `get_info()` a následně použij funkci `pujc_auto()`.
-
-Otestuj, že program nedovolí půjčit stejné auto dvakrát.
+2. Zkopíruj si obsah souboru [posta.txt](posta.txt) do regex101 jako testovací řetězec. Vymysli regulární výraz, který označí všechny "poslední řádky adresy" v textu. Poslední řádka adresy zpravidla obsahuje PSČ a název obce, například `190 16 PRAHA 916` nebo `742 45 FULNEK`. Celkem by jich mělo být 18.
 
 ---
 
 ## Nepovinný bonus
 
-Přidej třídě `Auto` metodu `vrat_auto()`, která bude mít (krom obligátního `self`) 2 parametry, a to je stav tachometru při vrácení a počet dní, po které zákazník auto používal. Ulož stav tachometru do atributu objektu. Nastav vozidlo jako volné.
+Napiš program, který se zeptá uživatele na jeho přihlašovací jméno, e-mailovou adresu a heslo. Po každém zadaném údaji program ověří jeho správnost podle následujících pravidel:
 
-Dále ve funkci vypočti cenu za půjčení. Cena je 400 Kč na den, pokud měl zákazník celkem auto méně než týden, a 300 Kč na den, pokud měl zákazník auto déle. Cena je stejná pro obě auta. Vlož cenu do nějakého informativního textu a ten vrať pomocí klíčového slova `return`.
+* uživatelské jméno smí obsahovat malá a velká písmena (nesmí obsahovat žádné jiné znaky), jeho minimálná délka je 6 znaků a jeho maximální délka je 10 znaků.
+* heslo smí obsahovat malá a velká písmena, číslice, a následující speciální znaky: `_`, `-`, `.`, `+`, `=`. Jeho minimálná délka je 12 znaků a jeho maximální délka je 30 znaků.
+* e-mail by měl být validním e-mailem :slightly_smiling_face: Tady jsou nějaké testovací příklady (viz [zdroj](https://gist.github.com/cjaoude/fd9910626629b53c4d25))
+  * příklady platných e-mailových adres:
+    ```
+    email@example.com
+    firstname.lastname@example.com
+    email@subdomain.example.com
+    firstname+lastname@example.com
+    email@123.123.123.123
+    email@[123.123.123.123]
+    "email"@example.com
+    1234567890@example.com
+    email@example-one.com
+    _______@example.com
+    email@example.name
+    email@example.museum
+    email@example.co.jp
+    firstname-lastname@example.com
+    ```
+  * příklady neplatných e-mailových adres:
+    ```
+    plainaddress
+    #@%^%#$@#$@#.com
+    @example.com
+    Joe Smith <email@example.com>
+    email.example.com
+    email@example@example.com
+    .email@example.com
+    email.@example.com
+    email..email@example.com
+    あいうえお@example.com
+    email@example.com (Joe Smith)
+    email@example
+    email@-example.com
+    email@example.web
+    email@111.222.333.44444
+    email@example..com
+    Abc..123@example.com
+    ```
+
+  *Zkuste se zaměřit na to, aby program pokryl co nejvíce platných e-mailových adres. Cílem není pokrýt všechny platné, a vyloučit všechny neplatné, ale zkusit si napsat regex, který to zvládne co nejlépe, i když třeba ne perfektně! Bonus odevzdej, i když nebude dokonalý.*
