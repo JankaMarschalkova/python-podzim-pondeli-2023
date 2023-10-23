@@ -1,46 +1,35 @@
-# ukol-09: Teplota ve městech
+
+# ukol-10: Zaměstnanci a Projekty
 
 _Úkol můžeš odevzdat buďto jako Jupyter Notebook `.ipynb`, nebo jako klasický program `.py`._
 
-Stáhni si soubor [temperature.csv](./temperature.csv), který obsahuje informace o průměrné teplotě v různých městech v **listopadu 2017**.
+## Zadání 1
 
+Uvažuj, že zpracováváš analýzu pro softwarovou firmu. Firma má kanceláře v Praze, Plzni a Liberci. Seznam zaměstnanců pro jednotlivé kanceláře najdeš v souborech [zam_praha.csv](https://raw.githubusercontent.com/lutydlitatova/python-jaro-2022/main/ukoly/data/zam_praha.csv), [zam_plzeň.csv](https://raw.githubusercontent.com/lutydlitatova/python-jaro-2022/main/ukoly/data/zam_plzeň.csv) a [zam_liberec.csv](https://raw.githubusercontent.com/lutydlitatova/python-jaro-2022/main/ukoly/data/zam_liberec.csv).
 
-Vypiš si prvních několik řádků, ať si prohlédneš strukturu tabulky. 
+* Načti data o zaměstnancích z CSV souborů do tabulek (DataFrame). Ke každé tabulce přidej nový sloupec `mesto`, které bude obsahovat informaci o tom, ve kterém městě zaměstnanec pracuje.
+* Vytvoř novou tabulku `zamestnanci` a ulož do ní informace o všech zaměstnancích (operace `concat`).
+* Ze souboru [platy_2021_02.csv](https://raw.githubusercontent.com/lutydlitatova/python-jaro-2022/main/ukoly/data/platy_2021_02.csv) načti platy zaměstnanců za únor 2021. Propoj tabulku (operace `join`) s platy a tabulku se zaměstnanci pomocí sloupce `cislo_zamestnance`.
+* Porovnej rozměry tabulek před spojením a po spojení. Pokud nemá některý zaměstnanec plat za únor, znamená to, že v naší firmě již nepracuje.
+* Spočti průměrný plat zaměstnanců v jednotlivých kancelářích.
 
-Dále napiš následující dotazy:
-* Dotaz na měření, která byla provedena v Praze. Je na datech něco zvláštního? Napadá tě, čím to může být? [Zde](https://cs.wikipedia.org/wiki/Stupe%C5%88_Fahrenheita) je nápověda.
-* Dotaz na měření, ve kterých je teplota (sloupec `AvgTemperature`) vyšší než 80 stupňů.
-* Dotaz na měření, ve kterých je teplota vyšší než 60 stupňů a současně bylo měření provedeno v regionu (sloupec `Region`) Evropa (Europe).
-* Dotaz na extrémní hodnoty, tj. měření, ve kterých je teplota vyšší než 80 stupňů nebo menší než -20 stupňů.
+## Zadání 2
+Pokračuj ve své práci pro softwarovou firmu. Ze souboru [vykazy.csv](https://raw.githubusercontent.com/lutydlitatova/python-jaro-2022/main/ukoly/data/vykazy.csv) načti informace o výkazech na projekty pro jednoho vybraného zákazníka.
+
+* Načti data ze souboru a ulož je do tabulky.
+* Proveď agregaci a zjisti celkový počet vykázaných hodin za jednotlivé projekty.
 
 ---
 
 ## Nepovinný bonus 1
 
-Nainstaluj si modul `pytemperature` a zkus si vytvořit nový sloupec, který bude obsahovat průměrnou templotu ve stupních Celsia.
-
-Ve svém programu nejprve proveď import modulu `pytemperature`. Nový sloupec pak přidáš do tabulky tak, že nalevo od `=` vložíš tabulku a název nového sloupce do hranatých závorek. Napravo pak můžeš provádět výpočty pomocí již existujících sloupců. Můžeš např. použít funkci `f2c` z modulu `pytemperature`, která převede teplotu ze stupňů Fahrenheita na stupně Celsia.
-
-```python
-import pytemperature
-
-df["AvgTemperatureCelsia"] = pytemperature.f2c(df["AvgTemperature"])
-```
-
-Nyní můžeš zpracovat následující příklady:
-
-* Dotaz na měření, ve kterých je teplota (sloupec `AvgTemperatureCelsia`) vyšší než 30 stupňů Celsia.
-* Dotaz na měření, ve kterých je teplota vyšší než 15 stupňů Celsia a současně bylo měření provedeno v regionu (sloupec `Region`) Evropa (Europe).
-* Dotaz na extrémní hodnoty, tj. měření, ve kterých je teplota vyšší než 30 stupňů Celsia nebo menší než -10 stupňů. Jsou některé hodnoty podezřelé?
+* Ulož do proměnné počet zaměstnanců, kteří v naší firmě již nepracují.
+* V rámci úspory se IT oddělení rozhodlo prověřit licence přidělené zaměstnancům, kteří ve firmě již nepracují. Vytvoř samostatnou tabulku, která obsahuje jména zaměstnanců, kteří ve firmě již nepracují. Tabulku ulož do souboru CSV.
 
 ---
 
 ## Nepovinný bonus 2
 
-Pokračuj ve své práci s informacemi o průměrných teplotách. Pokud jsi zpracoval/a první bonus, můžeš pracovat s teplotami ve stupních Celsia.
+Propoj tabulku s výkazy s tabulkou se zaměstnanci, kterou jsi vytvořil(a) v předchozím cvičení. 
 
-Napiš následující dotazy:
-
-* Dotaz na řádky z 13. listopadu 2017 (sloupec `Day` musí mít hodnotu 13).
-* Dotaz na řádky z 13. listopadu 2017 ze Spojených států amerických (sloupec `Day` musí mít hodnotu 13 a sloupec `Country` hodnotu US). Výsledek dotazu si ulož do nové tabulky a použij ji jako vstup pro následující dotaz.
-* Pro data z předchozího dotazu napiš dotaz na řádky ve městech (sloupec `City`) Washington a Philadelphia.
+Následně proveď statistiku vykázaných hodin za jednotlivé kanceláře, tj. spočítej celkový počet hodin vykázaný zaměstnanci jednotlivých kanceláří na projekty daného zákazníka.
