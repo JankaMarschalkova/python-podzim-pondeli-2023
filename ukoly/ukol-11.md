@@ -1,4 +1,4 @@
-# ukol-07
+# ukol-11
 
 ## Zadání
 
@@ -18,7 +18,7 @@
 8./9
 ```
 
-2. Zkopíruj si obsah souboru [posta.txt](posta.txt) do regex101 jako testovací řetězec. Vymysli regulární výraz, který označí všechny "poslední řádky adresy" v textu. Poslední řádka adresy zpravidla obsahuje PSČ a název obce, například `190 16 PRAHA 916` nebo `742 45 FULNEK`. Celkem by jich mělo být 18.
+2. Zkopíruj si obsah souboru [posta.txt](https://github.com/JankaMarschalkova/python-podzim-pondeli-2023/blob/main/ukoly/posta.txt) do regex101 jako testovací řetězec. Vymysli regulární výraz, který označí všechny "poslední řádky adresy" v textu. Poslední řádka adresy zpravidla obsahuje PSČ a název obce, například `190 16 PRAHA 916` nebo `742 45 FULNEK`. Celkem by jich mělo být 18.
 
 ---
 
