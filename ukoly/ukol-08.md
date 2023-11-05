@@ -1,8 +1,8 @@
-# ukol-09: Teplota ve městech
+# ukol-08: Teplota ve městech
 
 _Úkol můžeš odevzdat buďto jako Jupyter Notebook `.ipynb`, nebo jako klasický program `.py`._
 
-Stáhni si soubor [temperature.csv](./temperature.csv), který obsahuje informace o průměrné teplotě v různých městech v **listopadu 2017**.
+Stáhni si soubor [temperature.csv](https://github.com/JankaMarschalkova/python-podzim-pondeli-2023/blob/main/ukoly/temperature.csv), který obsahuje informace o průměrné teplotě v různých městech v **listopadu 2017**.
 
 
 Vypiš si prvních několik řádků, ať si prohlédneš strukturu tabulky. 
