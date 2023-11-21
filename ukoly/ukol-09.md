@@ -5,7 +5,7 @@ _Úkol můžeš odevzdat buďto jako Jupyter Notebook `.ipynb`, nebo jako klasic
 
 ## Zadání 1
 
-Uvažuj, že zpracováváš analýzu pro softwarovou firmu. Firma má kanceláře v Praze, Plzni a Liberci. Seznam zaměstnanců pro jednotlivé kanceláře najdeš v souborech [zam_praha.csv](https://github.com/JankaMarschalkova/python-podzim-pondeli-2023/blob/main/ukoly/zam_praha.csv), [zam_plzeň.csv](https://github.com/JankaMarschalkova/python-podzim-pondeli-2023/blob/main/ukoly/zam_plzeň.csv) a [zam_liberec.csv](https://github.com/JankaMarschalkova/python-podzim-pondeli-2023/blob/main/ukoly/zam_liberec.csv).
+Uvažuj, že zpracováváš analýzu pro softwarovou firmu. Firma má kanceláře v Praze, Plzni a Liberci. Seznam zaměstnanců pro jednotlivé kanceláře najdeš v souborech [zam_praha.csv](https://github.com/JankaMarschalkova/python-podzim-pondeli-2023/blob/main/ukoly/zam_praha.csv), [zam_plzeň.csv](https://github.com/JankaMarschalkova/python-podzim-pondeli-2023/blob/main/ukoly/zam_plzen.csv) a [zam_liberec.csv](https://github.com/JankaMarschalkova/python-podzim-pondeli-2023/blob/main/ukoly/zam_liberec.csv).
 
 * Načti data o zaměstnancích z CSV souborů do tabulek (DataFrame). Ke každé tabulce přidej nový sloupec `mesto`, které bude obsahovat informaci o tom, ve kterém městě zaměstnanec pracuje.
 * Vytvoř novou tabulku `zamestnanci` a ulož do ní informace o všech zaměstnancích (operace `concat`).
